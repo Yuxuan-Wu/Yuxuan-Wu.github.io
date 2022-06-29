@@ -29,12 +29,12 @@ request(url + parameter, { json: true }, (err, res, body) => {
     //USER_INFO.games.push(InfoJSON["games"])
 
     InfoJSON["games"].forEach(function(game) {
-        USER_INFO.game_list.push(game["name"])
-        USER_INFO.games[game["name"]] = game
+        USAGE_DETAIL.game_list.push(game["name"])
+        USAGE_DETAIL.games[game["name"]] = game
     });
 
-    console.log(USER_INFO.games["Apex Legends"])
-    console.log(USER_INFO.game_list)
+    console.log(USAGE_DETAIL.games["Apex Legends"])
+    console.log(USAGE_DETAIL.game_list)
 
 
 });
