@@ -18,7 +18,7 @@ var currApp;
 const graphAlgoViz = document.querySelector("#graphAlgoViz");
 const graphAlgoVizCard = document.querySelector("#graph-algo-viz-card");
 export const graphAlgoViz_tutorial_dialog_template = document.getElementById("graphAlgoViz-tutorial-template");
-export const navBar = document.querySelector("#navbar");
+export const navBar = document.querySelector("#mainNavbar");
 export const mainExhibition = document.querySelector("main");
 export const graphAlgoControlPanel = document.querySelector("#graph-algo-control-panel");
 export const startIcon = document.querySelector("#start-icon");
