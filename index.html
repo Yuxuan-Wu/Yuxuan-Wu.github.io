@@ -16,40 +16,48 @@
             <h3>Tutorial & Legend</h3>
             <section class="row">
                 <div class="legend">
-                    <image alt="start" draggable="false" src="./assets/images/algo_viz_assets/start_icon.png" width="24" height="24"></image>
+                    <image alt="start" draggable="false" src="./assets/images/algo_viz_assets/start_icon.png" width="24" height="24">
+                    </image>
                     <p>Starting point for pathfinding</p>
                 </div>
-                
+
                 <div class="legend">
-                    <image alt="finish" draggable="false" src="./assets/images/algo_viz_assets/finish_legend.png" width="24" height="24"></image>
+                    <image alt="finish" draggable="false" src="./assets/images/algo_viz_assets/finish_legend.png" width="24"
+                        height="24"></image>
                     <p>Finishing point for pathfinding</p>
                 </div>
-    
+
                 <div class="legend">
-                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/visited_legend.png" width="24" height="24"></image>
+                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/visited_legend.png" width="24"
+                        height="24"></image>
                     <p>This marks a box that is visited</p>
                 </div>
-    
+
                 <div class="legend">
-                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/path_legend.png" width="24" height="24"></image>
+                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/path_legend.png" width="24" height="24">
+                    </image>
                     <p>Highlighted box indicating this is a path</p>
                 </div>
-    
+
                 <div class="legend">
-                    <image alt="wall" draggable="false" src="./assets/images/algo_viz_assets/wall_legend.png" width="24" height="24"></image>
+                    <image alt="wall" draggable="false" src="./assets/images/algo_viz_assets/wall_legend.png" width="24" height="24">
+                    </image>
                     <p>Represents a wall that is impassable</p>
                 </div>
-    
+
                 <p>Drag and drop the starting/finishing point to move them to any box on the grid.</p>
-    
+
                 <div class="legend">
-                    <image alt="create/destroy wall" draggable="false" src="./assets/images/create_destroy_wall_legend.png" width="191" height="57"></image>
-                    <p>You can only create and destroy walls when you have activated the create/destroy wall mode; once you activated this function, 
-                        left click and drag your mouse pointer on the grid to create walls, and left click on each wall to destroy them.</p>
+                    <image alt="create/destroy wall" draggable="false"
+                        src="./assets/images/algo_viz_assets/create_destroy_wall_legend.png" width="191" height="57"></image>
+                    <p>You can only create and destroy walls when you have activated the create/destroy wall mode; once
+                        you activated this function,
+                        left click and drag your mouse pointer on the grid to create walls, and left click on each wall
+                        to destroy them.</p>
                 </div>
-    
+
             </section>
-    
+
             <form method="dialog">
                 <button id="graph-algo-viz-tutorial-confirmation">OK</button>
             </form>
@@ -63,8 +71,8 @@
 
     <ul id="navbar">
         <li><button type="button" id="graphAlgoViz">Graph Algorithm Visualization</button></li>
-        <li><button type="button" id="physicsSim">Physics Simulations</button></li>
-        <li><button type="button" id="dataStructViz">Data Structure Visualization</button></li>
+        <li><button hidden type="button" id="physicsSim">Physics Simulations</button></li>
+        <li><button hidden type="button" id="dataStructViz">Data Structure Visualization</button></li>
         <li><button type="button" id="">TBD</button></li>
         <li><button type="button" id="">TBD</button></li>
     </ul>
@@ -81,10 +89,10 @@
         </li>
         <li>
             <select id="pathfinding-speed-menu">
-                <option value="5">Fastest</option>
+                <option value="3" selected>Fastest</option>
                 <option value="10">Fast</option>
-                <option value="20" selected>Slow</option>
-                <option value="50">Slowest</option>
+                <option value="20">Slow</option>
+                <option value="30">Slowest</option>
             </select>
         </li>
         <li>
@@ -99,7 +107,7 @@
     <main>
         <div id="exhibition-cards" class="row">
             <div id="graph-algo-viz-card" class="card">
-                <img src="./assets/images/algo_viz_assets/create_destroy_wall_legend.png alt="Graph Algo Viz Card" width="100%">
+                <img src="./assets/images/algo_viz_assets/graph_algo_viz_card.png" alt="Graph Algo Viz Card" width="100%">
                 <div class="card-description">
                     <h4><b>Graph Algorithm Visualization</b></h4>
                     <p>An interactive application that intuitively visualizes some famous graph algorithms.</p>
@@ -146,9 +154,9 @@
 
     <canvas id="canvas"> This project can only run if Canvas is supported and Javascript is enabled </canvas>
 
-    <image id="start-icon" alt="start" src="./assets/images/start_icon.png" draggable="true" width="24" height="24"
+    <image id="start-icon" alt="start" src="./assets/images/algo_viz_assets/start_icon.png" draggable="true" width="24" height="24"
         data-value="start" data-color="#4CAF50"></image>
-    <image id="destination-icon" alt="finish" src="./assets/images/destination_icon.png" draggable="true" width="24"
+    <image id="destination-icon" alt="finish" src="./assets/images/algo_viz_assets/finish_legend.png" draggable="true" width="24"
         height="24" data-value="finish" data-color="#FFD700"></image>
 
     <ul id="grid-board"></ul>
