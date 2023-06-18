@@ -165,38 +165,41 @@ p {
     margin: 1rem;
 }
 
-#navbar {
+.navbar {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--nav-bar-color);
     overflow: hidden;
     list-style-type: none;
     width: 100%;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
     z-index: 10;
 }
 
-#navbar li {
-    float: left;
+.navbar li {
+    display: inline-block;
     text-align: center;
-    padding: 0%;
-    margin: 0%;
+    padding: 0;
+    margin: 0;
 }
 
-#navbar button {
+.navbar button {
     border: none;
-    margin: 0%;
-    padding: 1.2rem;
+    margin: 0.8rem;
+    padding: 0.5rem;
     font-size: 1rem;
     color: rgb(215, 223, 248);
     background-color: var(--nav-bar-color);
     transition: 400ms;
     transition-timing-function: ease-out;
+    border-radius: 0.4rem;
 }
 
-#navbar button:hover {
+.navbar button:hover {
     background-color: rgb(131, 131, 131);
     cursor: pointer;
     color: white;
@@ -204,40 +207,6 @@ p {
 
 #graph-algo-control-panel {
     display: none;
-    position: relative;
-    background-color: var(--nav-bar-color);
-    overflow: hidden;
-    list-style-type: none;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
-    z-index: 10;
-}
-
-#graph-algo-control-panel li {
-    float: left;
-    text-align: center;
-    padding: 0%;
-    margin: 0%;
-}
-
-#graph-algo-control-panel button,
-select {
-    border: none;
-    margin: 0%;
-    padding: 1.2rem;
-    font-size: 1rem;
-    color: rgb(215, 223, 248);
-    background-color: var(--nav-bar-color);
-    transition: 400ms;
-    transition-timing-function: ease-out;
-}
-
-#graph-algo-control-panel button:hover {
-    background-color: rgb(131, 131, 131);
-    cursor: pointer;
-    color: white;
 }
 
 #graph-algo-menu option {
