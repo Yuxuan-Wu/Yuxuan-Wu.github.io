@@ -70,9 +70,7 @@
 <body>
 
     <ul id="navbar">
-        <li><button type="button" id="graphAlgoViz">Graph Algorithm Visualization</button></li>
-        <li><button hidden type="button" id="physicsSim">Physics Simulations</button></li>
-        <li><button hidden type="button" id="dataStructViz">Data Structure Visualization</button></li>
+        <li><button type="button" id="">TBD</button></li>
         <li><button type="button" id="">TBD</button></li>
         <li><button type="button" id="">TBD</button></li>
     </ul>
@@ -110,14 +108,14 @@
                 <img src="./assets/images/algo_viz_assets/graph_algo_viz_card.png" alt="Graph Algo Viz Card" width="100%">
                 <div class="card-description">
                     <h4><b>Graph Algorithm Visualization</b></h4>
-                    <p>An interactive application that intuitively visualizes some famous graph algorithms.</p>
+                    <p>An interactive application that visualizes some famous graph algorithms.</p>
                 </div>
             </div>
         </div>
 
         <div id="footer">
             <nav id="connections">
-                <a href="https://yuxuan-wu.github.io/">Author: Yuxuan (Charles) Wu</a>
+                <a href="https://yuxuan-wu.github.io/">Yuxuan (Charles) Wu</a>
                 <a href="https://github.com/Yuxuan-Wu">Github</a>
                 <a href="https://www.linkedin.com/in/yuw095/">LinkedIn</a>
                 <a href="https://app.joinhandshake.com/stu/users/24267118">Handshake</a>
@@ -125,32 +123,6 @@
             </nav>
         </div>
     </main>
-
-    <div id="firework-control-panel" class="column">
-        <div class="row">
-            <button type="button" id="fullauto-button" value="0">Fullauto Mode</button>
-        </div>
-        <div class="row">
-            <label for="color-picker">Firework Color:</label>
-            <input type="color" id="color-picker" value="#FFFFFF">
-        </div>
-        <div class="row">
-            <label for="scale-slide">Particle Size:</label>
-            <input type="range" class="slider" id="scale-slide" step="0.1" min="1.0" max="5.0" value="2.0">
-        </div>
-        <div class="row">
-            <label for="gravity-slide">Gravity:</label>
-            <input type="range" class="slider" id="gravity-slide" step="0.05" min="0.4" max="2.0" value="0.9">
-        </div>
-        <div class="row">
-            <label for="endurance-slide">Sparkle Endurance:</label>
-            <input type="range" class="slider" id="endurance-slide" step="0.05" min="1.0" max="3.0" value="1.75">
-        </div>
-        <div class="row">
-            <label for="particle-count-slide">Particle Count:</label>
-            <input type="range" class="slider" id="particle-count-slide" min="10" max="50" value="30">
-        </div>
-    </div>
 
     <canvas id="canvas"> This project can only run if Canvas is supported and Javascript is enabled </canvas>
 
@@ -160,8 +132,6 @@
         height="24" data-value="finish" data-color="#FFD700"></image>
 
     <ul id="grid-board"></ul>
-
-    <audio id="background-music" src="./assets/music/ZoodDZ.mp3" loop />
 
 </body>
 
