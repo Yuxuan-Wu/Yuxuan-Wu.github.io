@@ -42,7 +42,7 @@ graphAlgoVizCard.addEventListener("click", function () {
     mainExhibition.style.display = "none";
 
     navBar.style.display = "none";
-    graphAlgoControlPanel.style.display = "block";
+    graphAlgoControlPanel.style.display = "flex";
     startIcon.style.display = "initial";
     destinationIcon.style.display = "initial";
     GraphAlgoViz.createGrid();

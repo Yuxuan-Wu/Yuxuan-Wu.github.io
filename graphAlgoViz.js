@@ -93,7 +93,7 @@ homeBtn.addEventListener("click", homeBtnListener, true);
 function homeBtnListener() {
     gridBoard.remove();
     graphAlgoControlPanel.style.display = "none";
-    navBar.style.display = "block";
+    navBar.style.display = "flex";
     mainExhibition.style.display = "initial";
 }
 
