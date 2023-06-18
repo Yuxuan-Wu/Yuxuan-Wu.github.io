@@ -1,0 +1,365 @@
+:root {
+    --main-bg-color: rgb(38, 39, 41);
+    --nav-bar-color: rgb(41, 42, 47);
+    --shadow-color: rgba(0, 0, 0, .5);
+
+    --generic-green: #4CAF50;
+    --generic-blue: #008CBA;
+    --generic-red: #f44336;
+    --generic-gray: #cccccc;
+    --generic-black: #555555;
+}
+
+* {
+    -border: black solid thin;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 75%;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    background: var(--generic-gray);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 200ms;
+    transition: opacity 200ms;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    background: var(--generic-green);
+    cursor: pointer;
+}
+
+.grid-box {
+    align-items: center;
+    text-align: center;
+    background-color: var(--generic-gray);
+    margin: 0.1rem;
+    padding: 0.1rem;
+    line-height: 0;
+    border-radius: 0.2rem;
+    z-index: 10;
+    transition: 0.5s;
+    user-select: none;
+}
+
+.card {
+    margin: 1rem;
+    background-color: seashell;
+    box-shadow: 0 0.25rem 0.5rem 0 var(--shadow-color);
+    transition: 0.5s;
+    width: 20%;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem 0 var(--shadow-color);
+    cursor: pointer;
+}
+
+.card-description {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS';
+}
+
+body {
+    margin: 0%;
+    height: 100%;
+    background: var(--main-bg-color);
+}
+
+canvas {
+    background: var(--main-bg-color);
+    position: relative;
+    display: none;
+    z-index: 9;
+}
+
+label,
+button {
+    font-family: 'Trebuchet MS';
+}
+
+p {
+    letter-spacing: 0.025em;
+    line-height: 1.625;
+}
+
+#graph-algo-viz-tutorial {
+    border: none;
+    border-radius: 1rem;
+    background-color: seashell;
+    font-family: 'Trebuchet MS';
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
+    padding: 1.6rem;
+    width: 60%;
+}
+
+#graph-algo-viz-tutorial>* {
+    margin: 0.3rem;
+}
+
+#graph-algo-viz-tutorial section {
+    margin: 3rem 0;
+}
+
+#graph-algo-viz-tutorial image {
+    vertical-align: middle;
+}
+
+#graph-algo-viz-tutorial p {
+    display: inline-block;
+}
+
+#graph-algo-viz-tutorial button {
+    background-color: var(--generic-green);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
+    transition: 200ms;
+    float: right;
+}
+
+#graph-algo-viz-tutorial button:hover {
+    cursor: pointer;
+    box-shadow: 0.2rem 0.2rem 0.3rem 0.02rem var(--shadow-color);
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+}
+
+.legend p {
+    margin: 1rem;
+}
+
+#navbar {
+    position: relative;
+    display: block;
+    background-color: var(--nav-bar-color);
+    overflow: hidden;
+    list-style-type: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
+    z-index: 10;
+}
+
+#navbar li {
+    float: left;
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+}
+
+#navbar button {
+    border: none;
+    margin: 0%;
+    padding: 1.2rem;
+    font-size: 1rem;
+    color: rgb(215, 223, 248);
+    background-color: var(--nav-bar-color);
+    transition: 400ms;
+    transition-timing-function: ease-out;
+}
+
+#navbar button:hover {
+    background-color: rgb(131, 131, 131);
+    cursor: pointer;
+    color: white;
+}
+
+#graph-algo-control-panel {
+    display: none;
+    position: relative;
+    background-color: var(--nav-bar-color);
+    overflow: hidden;
+    list-style-type: none;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
+    z-index: 10;
+}
+
+#graph-algo-control-panel li {
+    float: left;
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+}
+
+#graph-algo-control-panel button,
+select {
+    border: none;
+    margin: 0%;
+    padding: 1.2rem;
+    font-size: 1rem;
+    color: rgb(215, 223, 248);
+    background-color: var(--nav-bar-color);
+    transition: 400ms;
+    transition-timing-function: ease-out;
+}
+
+#graph-algo-control-panel button:hover {
+    background-color: rgb(131, 131, 131);
+    cursor: pointer;
+    color: white;
+}
+
+#graph-algo-menu option {
+    background-color: var(--nav-bar-color);
+}
+
+#exhibition-cards {
+    position: relative;
+    height: 70%;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer {
+    bottom: 0%;
+}
+
+#connections {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem;
+
+}
+
+#connections a {
+    margin: 1rem;
+    text-decoration: none;
+    font-family: 'Trebuchet MS';
+    font-size: 1.5rem;
+    color: azure;
+    transition: 300ms;
+}
+
+#connections a:hover { 
+    text-shadow: 0 0 0.4rem var(--generic-blue); 
+}
+
+#firework-control-panel {
+    position: absolute;
+    bottom: 0%;
+    margin: 0.5rem;
+    padding: 0%;
+    z-index: 10;
+    display: none;
+}
+
+#firework-control-panel div {
+    margin: 1rem;
+}
+
+#firework-control-panel div>* {
+    margin-right: 1rem;
+    color: white;
+}
+
+#fullauto-button {
+    background-color: var(--generic-red);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0.02rem var(--shadow-color);
+    transition: 200ms;
+    transition-timing-function: ease-out;
+}
+
+#fullauto-button:hover {
+    background-color: #c51e12;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.01rem var(--shadow-color);
+}
+
+#color-picker {
+    outline: none;
+}
+
+#grid-board {
+    background-color: black;
+    border-radius: 0.2rem;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 9;
+
+    --cols: 25;
+    --rows: 25;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+#start-icon,
+#destination-icon {
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+
+#start-icon,
+#destination-icon:hover {
+    cursor: pointer;
+}
+
+#pathfinding-in-progress-banner {
+    text-align: center;
+    display: none;
+    position: relative;
+    color: rgb(215, 223, 248);
+    background-color: var(--nav-bar-color);
+    width: 100%;
+    margin: 0%;
+    padding: 1.2rem;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS';
+    box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
+    z-index: 10;
+}

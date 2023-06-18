@@ -1,197 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/x-icon" href="./assets/images/github-icon.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/fa62c117c7.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./assets/index/styles.css" />
-  <title>Yuxuan Wu</title>
+    <title>Fancy Algo Viz</title>
+
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <link rel="icon" type="image/x-icon" href="./assets/images/github-icon.jpg" />
+    <link rel="stylesheet" href="./assets/style/main.css" />
+
+    <template id="graphAlgoViz-tutorial-template">
+        <dialog id="graph-algo-viz-tutorial">
+            <h3>Tutorial & Legend</h3>
+            <section class="row">
+                <div class="legend">
+                    <image alt="start" draggable="false" src="./assets/images/algo_viz_assets/start_icon.png" width="24" height="24"></image>
+                    <p>Starting point for pathfinding</p>
+                </div>
+                
+                <div class="legend">
+                    <image alt="finish" draggable="false" src="./assets/images/algo_viz_assets/finish_legend.png" width="24" height="24"></image>
+                    <p>Finishing point for pathfinding</p>
+                </div>
+    
+                <div class="legend">
+                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/visited_legend.png" width="24" height="24"></image>
+                    <p>This marks a box that is visited</p>
+                </div>
+    
+                <div class="legend">
+                    <image alt="blank" draggable="false" src="./assets/images/algo_viz_assets/path_legend.png" width="24" height="24"></image>
+                    <p>Highlighted box indicating this is a path</p>
+                </div>
+    
+                <div class="legend">
+                    <image alt="wall" draggable="false" src="./assets/images/algo_viz_assets/wall_legend.png" width="24" height="24"></image>
+                    <p>Represents a wall that is impassable</p>
+                </div>
+    
+                <p>Drag and drop the starting/finishing point to move them to any box on the grid.</p>
+    
+                <div class="legend">
+                    <image alt="create/destroy wall" draggable="false" src="./assets/images/create_destroy_wall_legend.png" width="191" height="57"></image>
+                    <p>You can only create and destroy walls when you have activated the create/destroy wall mode; once you activated this function, 
+                        left click and drag your mouse pointer on the grid to create walls, and left click on each wall to destroy them.</p>
+                </div>
+    
+            </section>
+    
+            <form method="dialog">
+                <button id="graph-algo-viz-tutorial-confirmation">OK</button>
+            </form>
+        </dialog>
+    </template>
+
+    <script defer type="module" src="./main.js"></script>
 </head>
 
-<body class="light" id="top">
-  <header class="header center">
-    <h3>
-      <a href="https://github.com/Yuxuan-Wu" class="link">YW</a>
-    </h3>
+<body>
 
-    <nav class="nav center">
-      <ul class="nav__list center">
-        <li class="nav__list-item">
-          <a class="link link--nav" href="#projects">Projects</a>
+    <ul id="navbar">
+        <li><button type="button" id="graphAlgoViz">Graph Algorithm Visualization</button></li>
+        <li><button type="button" id="physicsSim">Physics Simulations</button></li>
+        <li><button type="button" id="dataStructViz">Data Structure Visualization</button></li>
+        <li><button type="button" id="">TBD</button></li>
+        <li><button type="button" id="">TBD</button></li>
+    </ul>
+
+    <ul id="graph-algo-control-panel">
+        <li><button type="button" id="graph-algo-home">Home</button></li>
+        <li><button type="button" id="graph-algo-find-path">Find Path</button></li>
+        <li><button type="button" id="graph-algo-create-wall">Create/Destroy Walls</button></li>
+        <li>
+            <select id="graph-algo-menu">
+                <option value="bfs">BFS</option>
+                <option value="dfs">DFS</option>
+            </select>
         </li>
-        <li class="nav__list-item">
-          <a class="link link--nav" href="#skills">Skills</a>
+        <li>
+            <select id="pathfinding-speed-menu">
+                <option value="5">Fastest</option>
+                <option value="10">Fast</option>
+                <option value="20" selected>Slow</option>
+                <option value="50">Slowest</option>
+            </select>
         </li>
-        <li class="nav__list-item">
-          <a class="link link--nav" href="#contact">Contact</a>
+        <li>
+            <button type="button" id="graph-algo-generate-maze">Generate Maze</button>
         </li>
-      </ul>
+        <li><button type="button" id="graph-algo-reset">Reset</button></li>
+        <li><button type="button" id="graph-algo-tutorial">Tutorial & Legends</button></li>
+    </ul>
 
-      <button type="button" aria-label="toggle theme" class="btn btn--icon">
-        <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
-      </button>
+    <p id="pathfinding-in-progress-banner">Pathfinding in progress...</p>
 
-      <button type="button" aria-label="toggle navigation" class="btn btn--icon nav__hamburger">
-        <i aria-hidden="true" class="fas fa-bars"></i>
-      </button>
-    </nav>
-  </header>
+    <main>
+        <div id="exhibition-cards" class="row">
+            <div id="graph-algo-viz-card" class="card">
+                <img src="./assets/images/algo_viz_assets/create_destroy_wall_legend.png alt="Graph Algo Viz Card" width="100%">
+                <div class="card-description">
+                    <h4><b>Graph Algorithm Visualization</b></h4>
+                    <p>An interactive application that intuitively visualizes some famous graph algorithms.</p>
+                </div>
+            </div>
+        </div>
 
-  <main>
-    <!-- About -->
-    <div class="about center">
-      <h1>Hi, I am <span class="about__name">Yuxuan (Charles) Wu.</span></h1>
-      <h2 class="about__role">A UCSD Undergraduate Student.</h2>
-      <p class="about__desc">
-        - A third-year undergraduate at UC San Diego expecting to graduate in 2024.
-        <br>
-        - Currently majoring in Computer Science.
-        <br>
-        - Things that I am interested in: Server-sided Programming, Web Development, PC Building, PC Gaming.
-      </p>
+        <div id="footer">
+            <nav id="connections">
+                <a href="https://yuxuan-wu.github.io/">Author: Yuxuan (Charles) Wu</a>
+                <a href="https://github.com/Yuxuan-Wu">Github</a>
+                <a href="https://www.linkedin.com/in/yuw095/">LinkedIn</a>
+                <a href="https://app.joinhandshake.com/stu/users/24267118">Handshake</a>
+                <a href="mailto:charlesleledev@gmail.com">Email Me</a>
+            </nav>
+        </div>
+    </main>
 
-      <div class="about__contact center">
-        <a href="https://www.lajollapines.com/">
-          <span class="btn btn--outline">Website</span>
-        </a>
-        <a href="https://www.lajollapines.com/">
-          <span class="btn btn--outline">Resume</span>
-        </a>
-
-        <a href="https://github.com/Yuxuan-Wu" aria-label="github" class="link link--icon">
-          <i aria-hidden="true" class="fab fa-github"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/yuw095" aria-label="linkedin" class="link link--icon">
-          <i aria-hidden="true" class="fab fa-linkedin"></i>
-        </a>
-      </div>
+    <div id="firework-control-panel" class="column">
+        <div class="row">
+            <button type="button" id="fullauto-button" value="0">Fullauto Mode</button>
+        </div>
+        <div class="row">
+            <label for="color-picker">Firework Color:</label>
+            <input type="color" id="color-picker" value="#FFFFFF">
+        </div>
+        <div class="row">
+            <label for="scale-slide">Particle Size:</label>
+            <input type="range" class="slider" id="scale-slide" step="0.1" min="1.0" max="5.0" value="2.0">
+        </div>
+        <div class="row">
+            <label for="gravity-slide">Gravity:</label>
+            <input type="range" class="slider" id="gravity-slide" step="0.05" min="0.4" max="2.0" value="0.9">
+        </div>
+        <div class="row">
+            <label for="endurance-slide">Sparkle Endurance:</label>
+            <input type="range" class="slider" id="endurance-slide" step="0.05" min="1.0" max="3.0" value="1.75">
+        </div>
+        <div class="row">
+            <label for="particle-count-slide">Particle Count:</label>
+            <input type="range" class="slider" id="particle-count-slide" min="10" max="50" value="30">
+        </div>
     </div>
 
-    <!-- Projects -->
-    <section id="projects" class="section projects">
-      <h2 class="section__title">Projects</h2>
+    <canvas id="canvas"> This project can only run if Canvas is supported and Javascript is enabled </canvas>
 
-      <div class="projects__grid">
-        <div class="project">
-          <h3>Project 1</h3>
-          <p class="project__description">
-            Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
-            sapiente debitis labore sed ipsam Mollitia repellat illum quod
-            unde beatae Quis
-          </p>
-          <ul class="project__stack">
-            <li class="project__stack-item">SASS</li>
-            <li class="project__stack-item">TypeScript</li>
-            <li class="project__stack-item">React</li>
-          </ul>
+    <image id="start-icon" alt="start" src="./assets/images/start_icon.png" draggable="true" width="24" height="24"
+        data-value="start" data-color="#4CAF50"></image>
+    <image id="destination-icon" alt="finish" src="./assets/images/destination_icon.png" draggable="true" width="24"
+        height="24" data-value="finish" data-color="#FFD700"></image>
 
-          <a href="https://github.com" aria-label="source code" class="link link--icon">
-            <i aria-hidden="true" class="fab fa-github"></i>
-          </a>
-          <a href="https://example.com" aria-label="live preview" class="link link--icon">
-            <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
+    <ul id="grid-board"></ul>
 
-        <div class="project">
-          <h3>Project 2</h3>
-          <p class="project__description">
-            Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
-            sapiente debitis labore sed ipsam Mollitia repellat illum quod
-            unde beatae Quis
-          </p>
-          <ul class="project__stack">
-            <li class="project__stack-item">SASS</li>
-            <li class="project__stack-item">TypeScript</li>
-            <li class="project__stack-item">React</li>
-          </ul>
+    <audio id="background-music" src="./assets/music/ZoodDZ.mp3" loop />
 
-          <a href="https://github.com" aria-label="source code" class="link link--icon">
-            <i aria-hidden="true" class="fab fa-github"></i>
-          </a>
-          <a href="https://example.com" aria-label="live preview" class="link link--icon">
-            <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
-
-        <div class="project">
-          <h3>Project 3</h3>
-          <p class="project__description">
-            Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
-            sapiente debitis labore sed ipsam Mollitia repellat illum quod
-            unde beatae Quis
-          </p>
-          <ul class="project__stack">
-            <li class="project__stack-item">SASS</li>
-            <li class="project__stack-item">TypeScript</li>
-            <li class="project__stack-item">React</li>
-          </ul>
-
-          <a href="https://github.com" aria-label="source code" class="link link--icon">
-            <i aria-hidden="true" class="fab fa-github"></i>
-          </a>
-          <a href="https://example.com" aria-label="live preview" class="link link--icon">
-            <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="section skills" id="skills">
-      <h2 class="section__title">Programming Skills</h2>
-      <ul class="skills__list">
-        <li class="skills__list-item btn btn--plain">Java</li>
-        <li class="skills__list-item btn btn--plain">C++</li>
-        <li class="skills__list-item btn btn--plain">NodeJS</li>
-        <li class="skills__list-item btn btn--plain">Python</li>
-        <li class="skills__list-item btn btn--plain">HTML</li>
-        <li class="skills__list-item btn btn--plain">CSS</li>
-        <li class="skills__list-item btn btn--plain">JavaScript</li>
-      </ul>
-      <h2 class="section__title">Tools & Platforms familiar with</h2>
-      <ul class="skills__list">
-        <li class="skills__list-item btn btn--plain">Git</li>
-        <li class="skills__list-item btn btn--plain">Linux/Ubuntu</li>
-        <li class="skills__list-item btn btn--plain">Nginx</li>
-        <li class="skills__list-item btn btn--plain">Apache2</li>
-        <li class="skills__list-item btn btn--plain">Zing Grid</li>
-        <li class="skills__list-item btn btn--plain">Zing Chart</li>
-        <li class="skills__list-item btn btn--plain">Android Studio</li>
-      </ul>
-    </section>
-
-    <!-- Contact -->
-    <section class="section contact center" id="contact">
-      <h2 class="section__title">Contact</h2>
-      <a href="mailto:charleslele2002@gmail.com">
-        <span class="btn btn--outline">Email me</span>
-      </a>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <a href="https://github.com/rajshekhar26/cleanfolio-minimal" class="link footer__link">
-      Credit To Raj Shekhar
-    </a>
-  </footer>
-
-  <div class="scroll-container">
-    <div class="scroll-top">
-      <a aria-label="Scroll up" href="#top">
-        <i aria-hidden="true" class="fas fa-arrow-up"></i>
-      </a>
-    </div>
-  </div>
-
-  <script src="./assets/index/script.js"></script>
 </body>
 
 </html>
