@@ -38,8 +38,8 @@
     margin-bottom: 1em;
 }
 
-#about-me {
-    display: block;
+#exhibition-cards {
+    display: flex;
 }
 
 .row {
