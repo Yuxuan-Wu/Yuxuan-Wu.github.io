@@ -70,9 +70,9 @@
 <body>
 
     <ul class="navbar" id="mainNavbar">
-        <li><button type="button" id="">TBD</button></li>
-        <li><button type="button" id="">TBD</button></li>
-        <li><button type="button" id="">TBD</button></li>
+        <li><button type="button" id="nav-about-btn">About</button></li>
+        <li><button type="button" id="nav-projects-btn">Projects</button></li>
+        <li><button type="button" id="nav-extra-btn">Extra</button></li>
     </ul>
 
     <ul class="navbar" id="graph-algo-control-panel">
@@ -103,7 +103,18 @@
     <p id="pathfinding-in-progress-banner">Pathfinding in progress...</p>
 
     <main>
-        <div id="exhibition-cards" class="row">
+        <div class="description displayer" id="about-me">
+            <h1>About Yuxuan Wu</h1>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>
+                    Hello, I am Yuxuan (Charles). Welcome to my website. I am a senior at the University of California San Diego, 
+                    majoring in Computer Science.
+                </p>
+            </section>
+        </div>
+
+        <div class="row displayer" id="exhibition-cards">
             <div id="graph-algo-viz-card" class="card">
                 <img src="./assets/images/algo_viz_assets/graph_algo_viz_card.png" alt="Graph Algo Viz Card" width="100%">
                 <div class="card-description">
@@ -111,6 +122,10 @@
                     <p>An interactive application that visualizes some famous graph algorithms.</p>
                 </div>
             </div>
+        </div>
+
+        <div class="description displayer" id="extra-info">
+            <h1>Extra</h1>
         </div>
 
         <div id="footer">

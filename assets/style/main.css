@@ -8,14 +8,41 @@
     --generic-red: #f44336;
     --generic-gray: #cccccc;
     --generic-black: #555555;
+
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 * {
     -border: black solid thin;
 }
 
+.displayer {
+    display: none;
+}
+
+.description {
+    display: none;
+    color: #f4f4f4;
+    padding: 1em;
+    margin: 1em auto;
+    max-width: 50%;
+}
+
+.description h1,
+.description h2 {
+    color: #f4f4f4;
+    margin-bottom: 0.5em;
+}
+
+.description p {
+    margin-bottom: 1em;
+}
+
+#about-me {
+    display: block;
+}
+
 .row {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
@@ -58,7 +85,6 @@
     text-align: center;
     padding: 1rem;
     font-size: 1rem;
-    font-family: 'Trebuchet MS';
 }
 
 body {
@@ -74,11 +100,6 @@ canvas {
     z-index: 9;
 }
 
-label,
-button {
-    font-family: 'Trebuchet MS';
-}
-
 p {
     letter-spacing: 0.025em;
     line-height: 1.625;
@@ -88,18 +109,22 @@ p {
     border: none;
     border-radius: 1rem;
     background-color: seashell;
-    font-family: 'Trebuchet MS';
     box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
     padding: 1.6rem;
     width: 60%;
+    max-width: 900px;
+    margin: auto;
+    overflow: auto;
+    color: #333;
 }
 
 #graph-algo-viz-tutorial>* {
     margin: 0.3rem;
 }
 
-#graph-algo-viz-tutorial section {
+#graph-algo-viz-tutorial > section {
     margin: 3rem 0;
+    display: flex;
 }
 
 #graph-algo-viz-tutorial image {
@@ -213,7 +238,6 @@ p {
 #connections a {
     margin: 1rem;
     text-decoration: none;
-    font-family: 'Trebuchet MS';
     font-size: 1.5rem;
     color: azure;
     transition: 300ms;
@@ -261,7 +285,6 @@ p {
     margin: 0%;
     padding: 1.2rem;
     font-size: 1rem;
-    font-family: 'Trebuchet MS';
     box-shadow: 0.1rem 0.1rem 0.3rem 0.01rem var(--shadow-color);
     z-index: 10;
 }

@@ -15,7 +15,12 @@ var currApp;
  * ============
  */
 
-const graphAlgoViz = document.querySelector("#graphAlgoViz");
+const aboutMeBtn = document.querySelector("#nav-about-btn");
+const aboutMe = document.querySelector("#about-me");
+const projectsBtn = document.querySelector("#nav-projects-btn");
+const projects = document.querySelector("#exhibition-cards");
+const extraInfoBtn = document.querySelector("#nav-extra-btn");
+const extraInfo = document.querySelector("#extra-info");
 const graphAlgoVizCard = document.querySelector("#graph-algo-viz-card");
 export const graphAlgoViz_tutorial_dialog_template = document.getElementById("graphAlgoViz-tutorial-template");
 export const navBar = document.querySelector("#mainNavbar");
@@ -38,6 +43,38 @@ canvas.height = window.innerHeight - navBar.offsetHeight;
  * Bind event listeners
  * ====================
  */
+
+/* set all displayer class to display none, and then set aboutMe to display block */
+aboutMeBtn.addEventListener("click", function () {
+    let displayers = document.getElementsByClassName('displayer');
+
+    for (let i = 0; i < displayers.length; i++) {
+        displayers[i].style.display = 'none';
+    }
+
+    aboutMe.style.display = 'block';
+});
+
+projectsBtn.addEventListener("click", function () {
+    let displayers = document.getElementsByClassName('displayer');
+
+    for (let i = 0; i < displayers.length; i++) {
+        displayers[i].style.display = 'none';
+    }
+
+    projects.style.display = 'flex';
+});
+
+extraInfoBtn.addEventListener("click", function () {
+    let displayers = document.getElementsByClassName('displayer');
+
+    for (let i = 0; i < displayers.length; i++) {
+        displayers[i].style.display = 'none';
+    }
+
+    extraInfo.style.display = 'block';
+});
+
 graphAlgoVizCard.addEventListener("click", function () {
     mainExhibition.style.display = "none";
 
