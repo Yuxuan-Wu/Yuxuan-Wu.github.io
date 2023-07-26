@@ -150,7 +150,7 @@ async function findPathBtnListener(event) {
 
     //after a solution is found
     pathfindintInProgressBanner.style.display = "none";
-    graphAlgoControlPanel.style.display = "block";
+    graphAlgoControlPanel.style.display = "flex";
     graphAlgoControlPanel.scrollIntoView({behavior: "smooth"});
 }
 
